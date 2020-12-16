@@ -130,7 +130,7 @@ class Cryptory():
         except:
             # future versions may split out the different exceptions (e.g. timeout)
             raise
-        output = output.assign(Date=pd.to_datetime(output['Date']))
+        output = output.assign(Date=pd.to_datetime(output['date']))
         for col in output.columns:
             if output[col].dtype == np.dtype('O'):
                 output.loc[output[col]=="-",col]=0
@@ -162,7 +162,7 @@ class Cryptory():
         if coin not in ['btc', 'eth', 'xrp', 'bch', 'ltc', 'dash', 'xmr', 'btg', 'etc', 'zec',
                         'doge', 'rdd', 'vtc', 'ppc', 'ftc', 'nmc', 'blk', 'aur', 'nvc', 'qrk', 'nec','link','ada','xlm','neo','dot','atom','eos']:
             raise ValueError("Not a valid coin")
-        if metric not in ['transactions', 'size', 'sentbyaddress', 'difficulty', 'hashrate', 'price', 
+        if metric not in ['transactions', 'size', 'sentbyaddress', 'difficulty', 'hashrate', 'price',
                           'mining_profitability', 'sentinusd', 'transactionfees', 'median_transaction_fee',
                         'confirmationtime', 'marketcap', 'transactionvalue', 'mediantransactionvalue',
                          'tweets', 'activeaddresses', 'top100cap']:
